@@ -11,11 +11,15 @@ arr.sort((a,b)=>a-b);
       let currLeftValue = arr[left];
       let currRightValue = arr[right];
       if(currLeftValue+currRightValue<target-arr[i]){
-         closestSum= Math.min(closestSum, Math.abs(target-(currLeftValue+currRightValue+arr[i])));
+         if(Math.abs(closestSum)> Math.abs(target-(currLeftValue+currRightValue+arr[i]))){
+			 closestSum = target-(currLeftValue+currRightValue+arr[i]);
+		 };
          left++;
       }	
       else{
-         closestSum= Math.min(closestSum, Math.abs(target-(currLeftValue+currRightValue+arr[i])));
+         if(Math.abs(closestSum)> Math.abs(target-(currLeftValue+currRightValue+arr[i]))){
+			 closestSum = target-(currLeftValue+currRightValue+arr[i]);
+		 };
          right--;
       }	
      }
