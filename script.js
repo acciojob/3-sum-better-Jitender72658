@@ -10,15 +10,16 @@ arr.sort((a,b)=>a-b);
      while(left<right){
       let currLeftValue = arr[left];
       let currRightValue = arr[right];
-      if(currLeftValue+currRightValue<target-arr[i]){
-         if(Math.abs(closestSum)> Math.abs(target-(currLeftValue+currRightValue+arr[i]))){
-			 closestSum = target-(currLeftValue+currRightValue+arr[i]);
+      let currSum = currLeftValue+currRightValue+arr[i];
+      if(currSum<target){
+         if(Math.abs(target-currSum)< Math.abs(target-closestSum)){
+			 closestSum = currSum;
 		 };
          left++;
       }	
       else{
-         if(Math.abs(closestSum)> Math.abs(target-(currLeftValue+currRightValue+arr[i]))){
-			 closestSum = target-(currLeftValue+currRightValue+arr[i]);
+         if(Math.abs(target-currSum)< Math.abs(target-closestSum)){
+			 closestSum = currSum;
 		 };
          right--;
       }	
